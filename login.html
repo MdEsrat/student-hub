@@ -1,66 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - UniConnect</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script>
     function toggleMenu() {
-      const menu = document.getElementById("mobile-menu");
-      menu.classList.toggle("hidden");
+      document.getElementById("mobile-menu").classList.toggle("hidden");
     }
   </script>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gradient-to-br from-blue-800 to-blue-900 text-white font-sans">
   <!-- Navbar -->
-  <header class="bg-blue-700 text-white shadow">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">UniConnect</h1>
+  <header class="bg-blue-900 border-b border-blue-700">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="/index.html" class="text-2xl font-extrabold tracking-tight flex items-center gap-2">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>Uni<span class="text-yellow-400">Connect</span></span>
+      </a>
+      <div class="hidden md:flex space-x-6 text-sm font-semibold">
+        <a href="/index.html" class="hover:text-yellow-300">Home</a>
+        <a href="/register.html" class="hover:text-yellow-300">Register</a>
+      </div>
       <div class="md:hidden">
-        <button onclick="toggleMenu()" class="text-white focus:outline-none">
+        <button onclick="toggleMenu()">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
-      <nav class="hidden md:flex gap-6">
-        <a href="/index.html" class="hover:text-yellow-300">Home</a>
-        <a href="/dashboard.html" class="hover:text-yellow-300">Dashboard</a>
-        <a href="/profile.html" class="hover:text-yellow-300">Profile</a>
-        <a href="/login.html" class="hover:text-yellow-300">Login</a>
-        <a href="/register.html" class="hover:text-yellow-300">Register</a>
-      </nav>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-      <a href="/index.html" class="block py-2">Home</a>
-      <a href="/dashboard.html" class="block py-2">Dashboard</a>
-      <a href="/profile.html" class="block py-2">Profile</a>
-      <a href="/login.html" class="block py-2">Login</a>
-      <a href="/register.html" class="block py-2">Register</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-800 px-6 py-4 space-y-2">
+      <a href="/index.html" class="block hover:text-yellow-300">Home</a>
+      <a href="/register.html" class="block hover:text-yellow-300">Register</a>
     </div>
   </header>
 
-  <!-- Login Form -->
   <main class="flex items-center justify-center min-h-screen px-4">
-    <form action="/api/login" method="POST" class="bg-white p-8 rounded shadow-md w-full max-w-md">
-      <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+    <form action="/api/login" method="POST" class="bg-white text-gray-800 p-8 rounded-lg shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-bold text-center mb-6 text-blue-900">Login to UniConnect</h2>
       <label class="block mb-4">
-        <span class="text-gray-700">Email</span>
-        <input type="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@university\\.edu$" class="w-full border border-gray-300 rounded px-3 py-2" />
+        <span>Email</span>
+        <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded" />
       </label>
-      <label class="block mb-4">
-        <span class="text-gray-700">Password</span>
-        <input type="password" name="password" required pattern=".{6,}" class="w-full border border-gray-300 rounded px-3 py-2" />
+      <label class="block mb-6">
+        <span>Password</span>
+        <input type="password" name="password" required class="w-full px-4 py-2 border border-gray-300 rounded" />
       </label>
-      <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-800 w-full">Login</button>
-      <p class="mt-4 text-sm text-center">Don't have an account? <a href="/register.html" class="text-blue-600 underline">Register here</a>.</p>
+      <button type="submit" class="w-full bg-blue-800 text-white py-2 rounded hover:bg-blue-700 font-semibold">Login</button>
+      <p class="mt-4 text-center text-sm">Don't have an account? <a href="/register.html" class="text-blue-300 underline">Register here</a>.</p>
     </form>
   </main>
 
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-600 py-6 bg-gray-200">
-    &copy; 2025 UniConnect. All rights reserved.
+  <footer class="bg-blue-900 text-center text-sm text-blue-300 py-6 border-t border-blue-700 mt-10">
+    &copy; 2025 UniConnect. Built for Students, by Students.
   </footer>
 </body>
 </html>
