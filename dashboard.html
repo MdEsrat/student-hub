@@ -1,86 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark:bg-gray-900">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard - UniConnect</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("mobile-menu");
-      menu.classList.toggle("hidden");
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        secondary: '#F59E0B',
+                        accent: '#10B981',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-100 font-sans">
-  <!-- Navbar -->
-  <header class="bg-blue-700 text-white shadow">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">UniConnect</h1>
-      <div class="md:hidden">
-        <button onclick="toggleMenu()" class="text-white focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-      <nav class="hidden md:flex gap-6">
-        <a href="/index.html" class="hover:text-yellow-300">Home</a>
-        <a href="/dashboard.html" class="hover:text-yellow-300">Dashboard</a>
-        <a href="/profile.html" class="hover:text-yellow-300">Profile</a>
-        <a href="/login.html" class="hover:text-yellow-300">Login</a>
-        <a href="/register.html" class="hover:text-yellow-300">Register</a>
-      </nav>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-      <a href="/index.html" class="block py-2">Home</a>
-      <a href="/dashboard.html" class="block py-2">Dashboard</a>
-      <a href="/profile.html" class="block py-2">Profile</a>
-      <a href="/login.html" class="block py-2">Login</a>
-      <a href="/register.html" class="block py-2">Register</a>
-    </div>
-  </header>
+<body class="bg-gray-100 dark:bg-gray-900 font-sans flex flex-col min-h-screen transition-colors duration-300">
+    <!-- Responsive Navbar -->
+    <nav class="bg-primary dark:bg-gray-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold tracking-tight">UniHub</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="/" class="hover:text-secondary transition duration-300">Home</a>
+                <a href="/faculty-reviews.html" class="hover:text-secondary transition duration-300">Faculty Reviews</a>
+                <a href="/resource-hub.html" class="hover:text-secondary transition duration-300">Resource Hub</a>
+                <a href="/cgpa-tracker.html" class="hover:text-secondary transition duration-300">CGPA Tracker</a>
+                <a href="/user-profile.html" class="hover:text-secondary transition duration-300">Profile</a>
+                <a href="/dashboard.html" class="hover:text-secondary transition duration-300">Dashboard</a>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-secondary transition">
+                    <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+            </div>
+            <button class="md:hidden focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-primary dark:bg-gray-800 transition-all duration-300 ease-in-out">
+            <a href="/" class="block px-4 py-2 hover:bg-secondary hover:text-white transition duration-300">Home</a>
+            <a href="/faculty-reviews.html" class="block px-4 py-2 hover:bg-secondary hover:text-white transition duration-300">Faculty Reviews</a>
+            <a href="/resource-hub.html" class="block px-4 py-2 hover:bg-secondary hover:text-white transition duration-300">Resource Hub</a>
+            <a href="/cgpa-tracker.html" class="block px-4 py-2 hover:bg-secondary hover:text-white transition duration-300">CGPA Tracker</a>
+            <a href="/user-profile.html" class="block px-4 py-2 hover:bg-secondary hover:text-white transition duration-300">Profile</a>
+            <a href="/dashboard.html" class="block px-4 py-2 hover:bg-secondary hover:text-white transition duration-300">Dashboard</a>
+            <button id="mobile-theme-toggle" class="block px-4 py-2 w-full text-left hover:bg-secondary hover:text-white transition duration-300">Toggle Theme</button>
+        </div>
+    </nav>
 
-  <!-- Dashboard Content -->
-  <main class="p-6 max-w-7xl mx-auto">
-    <h2 class="text-2xl font-bold mb-6">Welcome back, <span class="text-blue-600">{{username}}</span>!</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <a href="/faculty-reviews.html" class="bg-white p-6 shadow rounded-lg hover:shadow-lg transition hover:bg-blue-50">
-        <h3 class="text-lg font-semibold mb-2">Faculty Reviews</h3>
-        <p class="text-sm text-gray-600">Rate and browse reviews for professors and courses.</p>
-      </a>
-      <a href="/resources.html" class="bg-white p-6 shadow rounded-lg hover:shadow-lg transition hover:bg-blue-50">
-        <h3 class="text-lg font-semibold mb-2">Course Resources</h3>
-        <p class="text-sm text-gray-600">Upload and find notes, past papers and links.</p>
-      </a>
-      <a href="/cgpa-tracker.html" class="bg-white p-6 shadow rounded-lg hover:shadow-lg transition hover:bg-blue-50">
-        <h3 class="text-lg font-semibold mb-2">CGPA Tracker</h3>
-        <p class="text-sm text-gray-600">Track semester grades and monitor progress.</p>
-      </a>
-    </div>
-
-    <section class="mt-12">
-      <h3 class="text-xl font-semibold mb-4">Quick Stats</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="bg-white p-4 shadow rounded text-center">
-          <div class="text-xl font-bold text-blue-700">{{totalReviews}}</div>
-          <div class="text-sm text-gray-600">Reviews Submitted</div>
+    <!-- Interactive Dashboard Page -->
+    <section class="flex-grow py-16 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-700">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-extrabold text-center mb-12 text-primary dark:text-white animate-fade-in">Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 animate-slide-up">
+                    <h3 class="text-xl font-semibold mb-4 text-primary dark:text-white">Manage Users</h3>
+                    <ul class="space-y-4">
+                        <li class="flex justify-between items-center">
+                            <span class="text-gray-700 dark:text-gray-300">John Smith (Student)</span>
+                            <div class="space-x-3">
+                                <button class="text-primary hover:text-secondary font-medium transition dark:text-white dark:hover:text-yellow-400">Edit</button>
+                                <button class="text-red-600 hover:text-red-800 font-medium transition dark:text-red-400 dark:hover:text-red-300">Delete</button>
+                            </div>
+                        </li>
+                        <!-- Add more users dynamically -->
+                    </ul>
+                    <button class="mt-4 text-accent hover:text-green-700 font-medium transition dark:text-green-400 dark:hover:text-green-300">View All Users</button>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 animate-slide-up">
+                    <h3 class="text-xl font-semibold mb-4 text-primary dark:text-white">Moderate Resources</h3>
+                    <ul class="space-y-4">
+                        <li class="flex justify-between items-center">
+                            <span class="text-gray-700 dark:text-gray-300">Lecture Notes - Week 5</span>
+                            <div class="space-x-3">
+                                <button class="text-primary hover:text-secondary font-medium transition dark:text-white dark:hover:text-yellow-400">Approve</button>
+                                <button class="text-red-600 hover:text-red-800 font-medium transition dark:text-red-400 dark:hover:text-red-300">Delete</button>
+                            </div>
+                        </li>
+                        <!-- Add more resources dynamically -->
+                    </ul>
+                    <button class="mt-4 text-accent hover:text-green-700 font-medium transition dark:text-green-400 dark:hover:text-green-300">View All Resources</button>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 animate-slide-up">
+                    <h3 class="text-xl font-semibold mb-4 text-primary dark:text-white">Analytics</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Active Users: <span class="font-semibold">1,234</span></p>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">Resources Uploaded: <span class="font-semibold">567</span></p>
+                    <p class="text-gray-700 dark:text-gray-300 mt-2">Reviews Posted: <span class="font-semibold">789</span></p>
+                    <button class="mt-4 text-accent hover:text-green-700 font-medium transition dark:text-green-400 dark:hover:text-green-300">View Detailed Stats</button>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <button class="bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-secondary transition transform hover:scale-105 shadow-lg dark:bg-gray-700 dark:hover:bg-yellow-400">Generate Report</button>
+            </div>
         </div>
-        <div class="bg-white p-4 shadow rounded text-center">
-          <div class="text-xl font-bold text-blue-700">{{uploadedFiles}}</div>
-          <div class="text-sm text-gray-600">Resources Uploaded</div>
-        </div>
-        <div class="bg-white p-4 shadow rounded text-center">
-          <div class="text-xl font-bold text-blue-700">{{cgpa}}</div>
-          <div class="text-sm text-gray-600">Current CGPA</div>
-        </div>
-      </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-600 py-6 bg-gray-200">
-    &copy; 2025 UniConnect. All rights reserved.
-  </footer>
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center">
+                <h3 class="text-xl font-bold mb-2 tracking-tight">UniHub</h3>
+                <p class="text-sm mb-4">Empowering your academic journey</p>
+            </div>
+            <div class="mt-6 text-center text-sm">
+                <p>© 2025 UniHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggleTheme = () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        };
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('mobile-theme-toggle').addEventListener('click', toggleTheme);
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+    </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>CGPA Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -62,39 +62,43 @@
         </div>
     </nav>
 
-    <!-- Interactive Register Page -->
+    <!-- Interactive CGPA Tracker Page -->
     <section class="flex-grow py-16 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-700">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-extrabold text-center mb-12 text-primary dark:text-white animate-fade-in">Join UniHub</h2>
-            <div class="max-w-md mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg animate-slide-up">
+            <h2 class="text-4xl font-extrabold text-center mb-12 text-primary dark:text-white animate-fade-in">CGPA Tracker</h2>
+            <div class="max-w-lg mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg animate-slide-up">
                 <form>
                     <div class="mb-6">
-                        <label for="name" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Full Name</label>
-                        <input type="text" id="name" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="e.g., John Smith" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">University Email</label>
-                        <input type="email" id="email" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="e.g., john.smith@university.edu" pattern="[a-zA-Z0-9._%+-]+@university\.edu$" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="role" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Role</label>
-                        <select id="role" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
-                            <option value="" disabled selected>Select your role</option>
-                            <option value="student">Student</option>
-                            <option value="faculty">Faculty</option>
+                        <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Semester</label>
+                        <select class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            <option>Fall 2024</option>
+                            <option>Spring 2025</option>
+                            <!-- Add more semesters dynamically -->
                         </select>
                     </div>
                     <div class="mb-6">
-                        <label for="password" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Password</label>
-                        <input type="password" id="password" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Enter your password" required>
+                        <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Course</label>
+                        <input type="text" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="e.g., CSE416">
                     </div>
                     <div class="mb-6">
-                        <label for="confirm-password" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Confirm Password</label>
-                        <input type="password" id="confirm-password" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Confirm your password" required>
+                        <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Credits</label>
+                        <input type="number" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="e.g., 3">
                     </div>
-                    <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary transition transform hover:scale-105 shadow-lg dark:bg-gray-700 dark:hover:bg-yellow-400">Sign Up</button>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Grade</label>
+                        <select class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            <option>A</option>
+                            <option>B</option>
+                            <!-- Add more grades -->
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary transition transform hover:scale-105 shadow-lg dark:bg-gray-700 dark:hover:bg-yellow-400">Add Course</button>
                 </form>
-                <p class="text-center mt-6 text-gray-600 dark:text-gray-300">Already have an account? <a href="/login.html" class="text-primary hover:text-secondary font-medium transition dark:text-white dark:hover:text-yellow-400">Log In</a></p>
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold text-primary dark:text-white">Your CGPA: <span class="text-secondary dark:text-yellow-400">3.85</span></h3>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">Semester GPA: 3.90 (Fall 2024)</p>
+                    <button class="mt-4 text-accent hover:text-green-700 font-medium transition dark:text-green-400 dark:hover:text-green-300">View GPA Chart</button>
+                </div>
             </div>
         </div>
     </section>

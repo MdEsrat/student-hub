@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Faculty Reviews</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -62,39 +62,33 @@
         </div>
     </nav>
 
-    <!-- Interactive Register Page -->
+    <!-- Interactive Faculty Reviews Page -->
     <section class="flex-grow py-16 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-700">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-extrabold text-center mb-12 text-primary dark:text-white animate-fade-in">Join UniHub</h2>
-            <div class="max-w-md mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg animate-slide-up">
-                <form>
-                    <div class="mb-6">
-                        <label for="name" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Full Name</label>
-                        <input type="text" id="name" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="e.g., John Smith" required>
+            <h2 class="text-4xl font-extrabold text-center mb-12 text-primary dark:text-white animate-fade-in">Faculty Reviews</h2>
+            <div class="mb-8 flex justify-center">
+                <input type="text" placeholder="Search faculty..." class="w-full max-w-md p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Faculty Card -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 animate-slide-up">
+                    <h3 class="text-2xl font-semibold text-primary dark:text-white">Dr. John Doe</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mt-1">Department: Computer Science</p>
+                    <p class="text-gray-600 dark:text-gray-300">Course: CSE416</p>
+                    <div class="flex items-center my-3">
+                        <span class="text-secondary text-xl">★★★★☆</span>
+                        <span class="ml-2 text-gray-600 dark:text-gray-300 font-medium">(4.2/5)</span>
                     </div>
-                    <div class="mb-6">
-                        <label for="email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">University Email</label>
-                        <input type="email" id="email" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="e.g., john.smith@university.edu" pattern="[a-zA-Z0-9._%+-]+@university\.edu$" required>
+                    <p class="text-gray-700 dark:text-gray-400 italic">"Great professor, explains concepts clearly."</p>
+                    <div class="mt-4 flex space-x-3">
+                        <a href="/faculty/123" class="text-primary hover:text-secondary font-semibold transition dark:text-white dark:hover:text-yellow-400">View All Reviews</a>
+                        <button class="text-accent hover:text-green-700 font-semibold transition dark:text-green-400 dark:hover:text-green-300">Add Review</button>
                     </div>
-                    <div class="mb-6">
-                        <label for="role" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Role</label>
-                        <select id="role" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
-                            <option value="" disabled selected>Select your role</option>
-                            <option value="student">Student</option>
-                            <option value="faculty">Faculty</option>
-                        </select>
-                    </div>
-                    <div class="mb-6">
-                        <label for="password" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Password</label>
-                        <input type="password" id="password" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Enter your password" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="confirm-password" class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Confirm Password</label>
-                        <input type="password" id="confirm-password" class="w-full p-3 border-2 border-primary rounded-lg focus:outline-none focus:border-secondary transition dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Confirm your password" required>
-                    </div>
-                    <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary transition transform hover:scale-105 shadow-lg dark:bg-gray-700 dark:hover:bg-yellow-400">Sign Up</button>
-                </form>
-                <p class="text-center mt-6 text-gray-600 dark:text-gray-300">Already have an account? <a href="/login.html" class="text-primary hover:text-secondary font-medium transition dark:text-white dark:hover:text-yellow-400">Log In</a></p>
+                </div>
+                <!-- Add more faculty cards dynamically -->
+            </div>
+            <div class="mt-12 text-center">
+                <button class="bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-secondary transition transform hover:scale-105 shadow-lg dark:bg-gray-700 dark:hover:bg-yellow-400 dark:text-white">Write a Review</button>
             </div>
         </div>
     </section>
